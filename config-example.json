@@ -7,7 +7,7 @@
   },
   "accessories": [
     {
-      "accessory": "homebridge-epson-projector.EpsonProjector",
+      "accessory": "Epson Projector",
       "name": "Projector",
       "ip": "192.168.144.128"
     }
