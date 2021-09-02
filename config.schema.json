@@ -1,0 +1,44 @@
+{
+  "pluginAlias": "Epson Projector",
+  "pluginType": "accessory",
+  "schema": {
+		"name": {
+			"title": "Name",
+			"type": "string",
+			"required": true,
+			"default": "Projector"
+		},
+		"ipAddress": {
+			"title": "IP Address",
+			"type": "string",
+			"required": true,
+			"default": "192.168.1.115"
+		},
+			"model": {
+			"title": "Model",
+			"type": "string",
+			"required": false,
+			"default": "",
+			"description": "Model number to display in Homekit."
+		},
+		"serial": {
+			"title": "Serial Number",
+			"type": "string",
+			"required": false,
+			"default": "",
+			"description": "Serial number to display in Homekit."
+		},
+		"timeout": {
+			"title": "Timeout",
+			"type": "integer",
+			"required": false,
+			"default": false
+		},
+		"debug": {
+			"title": "Debug",
+			"type": "boolean",
+			"required": false,
+			"default": false
+		},
+  }
+}

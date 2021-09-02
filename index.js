@@ -4,7 +4,7 @@ const command_path = "/cgi-bin/directsend?";
 
 const query_path = "/cgi-bin/json_query?jsoncallback=";
 
-const timeout = 5000;
+const timeout = 10000;
 
 const debug = false;
 
@@ -26,36 +26,30 @@ function EpsonProjector(log, config) {
     this.name = config["name"];
     this.timeout = config["timeout"] === undefined ? timeout : config["timeout"];
     this.debug = config["debug"] === undefined ? debug : config["debug"];
+		this.referer = "http://" + this.ip + "/cgi-bin/webconf";
 		this.api = axios.create({
-			baseURL: "http://" + this.ip,
 			timeout: this.timeout,
-			headers: {'Referer'': "http://" + this.ip + "/cgi-bin/webconf"}
+			headers: {'Referer': this.referer}
 		});
 
 }
 
 EpsonProjector.prototype = {
 
-    getPowerState: function (callback) {
-        if (this.debug) {
-            console.log(error);
-        }
-        
+  	getPowerState: function (callback) {
+       
+				this.api.get('http://' + this.ip + query_path + 'PWR?')
+					.then(resp => {
+					  if (this.debug) {
+							this.log("http://" + this.ip + query_path + "PWR?");
+							this.log("Projector response: " + resp.data.projector.feature.reply + " =", resp.data.projector.feature.reply === "01" ? "On" : "Off");
+        		}
 
-
-        this.api.get({
-            url: query_path + "PWR?"
-        }, function (error, response, body) {
-            if (error !== null) {
-                callback(error);
-                return;
-            }
-            try {
-                callback(null, JSON.parse(body)["projector"]["feature"]["reply"] === "01")
-            } catch (error) {
-                callback(error);
-            }
-        });
+						callback(null, resp.data.projector.feature.reply === "01" | resp.data.projector.feature.reply === "02")
+					})
+					.catch(err => {
+						callback(err)
+					});
     },
 
     setPowerState: function(powerOn, callback) {
@@ -66,16 +60,19 @@ EpsonProjector.prototype = {
             command = "PWR=OFF";
         }
         if (this.debug) {
-            console.log(error);
-        }
-        this.api.get({
-            url: command_path + command
-        }, function (error, response, body) {
-            if (this.debug) {
-                console.log(error);
-            }
-            callback();
-        });
+					this.log("http://" + this.ip + command_path + command);
+				}
+
+        this.api.get('http://' + this.ip + command_path + command)
+        	.then(resp => {
+        		if (this.debug) { 
+        			this.log(resp)
+        		}
+            callback()
+          })
+          .catch(err => {
+          	callback(err)
+          });
     },
 
     getServices: function () {

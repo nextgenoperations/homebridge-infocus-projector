@@ -1,8 +1,8 @@
 {
-  "name": "homebridge-epsonprojector",
-  "version": "0.0.3",
+  "name": "@ecoen66/homebridge-epson-projector",
+  "version": "0.0.4",
   "author": "ecoen66",
-  "description": "EPSON Projector automation, via Homebridge for the impatient.",
+  "description": "EPSON Projector automation, via Homebridge.",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin",
@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecoen/homebridge-epsonprojector.git"
+    "url": "git+https://github.com/ecoen66/homebridge-epson-projector.git"
   },
   "bugs": {
-    "url": "https://github.com/ecoen/homebridge-epsonprojector/issues"
+    "url": "https://github.com/ecoen66/homebridge-epson-projector/issues"
   },
-  "homepage": "https://github.com/ecoen/homebridge-epsonprojector"
+  "homepage": "https://github.com/ecoen66/homebridge-epson-projector"
 }
