@@ -79,7 +79,7 @@ EpsonProjector.prototype = {
         const informationService = new Service.AccessoryInformation();
 
         informationService
-            .setCharacteristic(Characteristic.Manufacturer, "EPSON")
+            .setCharacteristic(Characteristic.Manufacturer, "Epson")
             .setCharacteristic(Characteristic.Model, this.model)
             .setCharacteristic(Characteristic.SerialNumber, this.serial);
 
