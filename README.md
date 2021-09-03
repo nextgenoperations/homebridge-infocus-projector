@@ -1,6 +1,6 @@
 # @ecoen66/homebridge-epson-projector
 An [EPSON](https://www.epson.com) Projector plugin for
-[Homebridge](https://github.com/nfarina/homebridge).  This creates a a set of Light Switch in homekit,
+[Homebridge](https://github.com/nfarina/homebridge).  This creates a Light Switch in homekit,
  for the power status of the projector.
 
 This is a fork from valkjsaaa's [homebridge-epson-projector](https://github.com/valkjsaaa/homebridge-epson-projector), modified to work with Axios.
