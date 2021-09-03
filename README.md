@@ -29,7 +29,7 @@ Example accessory config (needs to be added to the homebridge config.json):
 		"accessories": [
 			{
 				"name": "Projector",
-				"ip_address": "192.168.1.115",
+				"ipAddress": "192.168.1.115",
 				"model": "2150",
 				"serial": "myserialno",
 				"timeout": 10000,
@@ -45,6 +45,8 @@ Field           						| Description
 ----------------------------|------------
 **accessory**   						| (required) Must always be "Epson Projector".
 **name**										| (required) The name you want to use for for the light switch widget.
+**ipAddress**								| (required) The IP address of the projector (should be static, not DHCP).
+**serial**									| (optional) This shows up in the homekit accessory Characteristics.
 **model**										| (optional) This shows up in the homekit accessory Characteristics.
 **serial**									| (optional) This shows up in the homekit accessory Characteristics.
 **timeout**									| (optional) The timeout duration for the web API calls.
@@ -54,7 +56,6 @@ To make your projector work with the plugin:
 
 1. Connect your projector to your home network.
 2. Write down the IP address of the projector.
-
 3. Create your config file according to the above example (or using the Homebridge UI).
 
 This plugin is still very experimental. Please create an issue or a pull request for any problem you encountered.

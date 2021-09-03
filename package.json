@@ -1,6 +1,6 @@
 {
   "name": "@ecoen66/homebridge-epson-projector",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "ecoen66",
   "description": "Epson Projector automation, via Homebridge.",
   "license": "MIT",
