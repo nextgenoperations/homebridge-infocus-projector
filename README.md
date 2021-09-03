@@ -46,7 +46,6 @@ Field           						| Description
 **accessory**   						| (required) Must always be "Epson Projector".
 **name**										| (required) The name you want to use for for the light switch widget.
 **ipAddress**								| (required) The IP address of the projector (should be static, not DHCP).
-**serial**									| (optional) This shows up in the homekit accessory Characteristics.
 **model**										| (optional) This shows up in the homekit accessory Characteristics.
 **serial**									| (optional) This shows up in the homekit accessory Characteristics.
 **timeout**									| (optional) The timeout duration for the web API calls.
