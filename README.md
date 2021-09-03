@@ -58,3 +58,4 @@ To make your projector work with the plugin:
 3. Create your config file according to the above example (or using the Homebridge UI).
 
 This plugin is still very experimental. Please create an issue or a pull request for any problem you encountered.
+The fact that it is slow to recognize the power status change after turning the projector on or off is a known issue - but it works...

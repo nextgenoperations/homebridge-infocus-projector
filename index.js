@@ -20,13 +20,13 @@ module.exports = function (homebridge) {
 
 function EpsonProjector(log, config) {
     this.log = log;
-    this.ip = config["ip"];
+    this.ipAddress = config["ipAddress"];
     this.model = config["model"] === undefined ? "" : config["model"];
     this.serial = config["serial"] === undefined ? "" : config["serial"];
     this.name = config["name"];
     this.timeout = config["timeout"] === undefined ? timeout : config["timeout"];
     this.debug = config["debug"] === undefined ? debug : config["debug"];
-		this.referer = "http://" + this.ip + "/cgi-bin/webconf";
+		this.referer = "http://" + this.ipAddressAddress + "/cgi-bin/webconf";
 		this.api = axios.create({
 			timeout: this.timeout,
 			headers: {'Referer': this.referer}
@@ -38,10 +38,10 @@ EpsonProjector.prototype = {
 
   	getPowerState: function (callback) {
        
-				this.api.get('http://' + this.ip + query_path + 'PWR?')
+				this.api.get('http://' + this.ipAddress + query_path + 'PWR?')
 					.then(resp => {
 					  if (this.debug) {
-							this.log("http://" + this.ip + query_path + "PWR?");
+							this.log("http://" + this.ipAddress + query_path + "PWR?");
 							this.log("Projector response: " + resp.data.projector.feature.reply + " =", resp.data.projector.feature.reply === "01" ? "On" : "Off");
         		}
 
@@ -60,14 +60,15 @@ EpsonProjector.prototype = {
             command = "PWR=OFF";
         }
         if (this.debug) {
-					this.log("http://" + this.ip + command_path + command);
+					this.log("http://" + this.ipAddress + command_path + command);
 				}
 
-        this.api.get('http://' + this.ip + command_path + command)
+        this.api.get('http://' + this.ipAddress + command_path + command)
         	.then(resp => {
-        		if (this.debug) { 
+/*        		if (this.debug) { 
         			this.log(resp)
         		}
+*/
             callback()
           })
           .catch(err => {
