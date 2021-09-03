@@ -33,8 +33,8 @@ Example accessory config (needs to be added to the homebridge config.json):
 				"model": "2150",
 				"serial": "myserialno",
 				"timeout": 10000,
-				"debug": false
-				"accessory": "Epson Projector",
+				"debug": false,
+				"accessory": "Epson Projector"
 			}
 		]
  ...
