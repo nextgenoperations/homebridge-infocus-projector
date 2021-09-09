@@ -1,10 +1,11 @@
-# @ecoen66/homebridge-epson-projector
-An [EPSON](https://www.epson.com) Projector plugin for
-[Homebridge](https://github.com/nfarina/homebridge).  This creates a Light Switch in homekit,
- for the power status of the projector.
+# An [EPSON](https://www.epson.com) Projector plugin for
+[Homebridge](https://github.com/nfarina/homebridge).  
 
-This is a fork from valkjsaaa's [homebridge-epson-projector](https://github.com/valkjsaaa/homebridge-epson-projector), modified to work with Axios.
-This was tested to work with EPSON HomeCinema 2150. It should work with any other EPSON projector with EPSON iProjection support.
+This creates a Light Switch in homekit for the power status of the projector.
+
+This is a fork from Jackie Yang's [homebridge-epson-projector](https://github.com/valkjsaaa/homebridge-epson-projector), modified to work with Axios.
+
+This was tested to work with the EPSON HomeCinema 2150. It should work with any other EPSON projector with EPSON iProjection support.
 
 # Installation
 Run these commands:
@@ -13,7 +14,7 @@ Run these commands:
     % sudo npm install -g @ecoen66/homebridge-epson-projector
 
 
-NB: If you install homebridge like this:
+NOTE: If you install homebridge like this:
 
     sudo npm install -g --unsafe-perm homebridge
 
@@ -58,4 +59,5 @@ To make your projector work with the plugin:
 3. Create your config file according to the above example (or using the Homebridge UI).
 
 This plugin is still very experimental. Please create an issue or a pull request for any problem you encountered.
+
 The fact that it is slow to recognize the power status change after turning the projector on or off is a known issue - but it works...
