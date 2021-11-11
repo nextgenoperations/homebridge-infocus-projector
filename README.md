@@ -34,6 +34,7 @@ Example accessory config (needs to be added to the homebridge config.json):
 				"model": "2150",
 				"serial": "myserialno",
 				"timeout": 10000,
+				"refreshInterval": 15,
 				"debug": false,
 				"accessory": "Epson Projector"
 			}
@@ -50,6 +51,7 @@ Field           						| Description
 **model**										| (optional) This shows up in the homekit accessory Characteristics.
 **serial**									| (optional) This shows up in the homekit accessory Characteristics.
 **timeout**									| (optional) The timeout duration for the web API calls.
+**refreshInterval**					| (optional) The number of minutes between power status polls and updates. Default is 15
 **debug**										| (optional) Enables additional logging.
 
 To make your projector work with the plugin:
