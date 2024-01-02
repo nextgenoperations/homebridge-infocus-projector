@@ -5,7 +5,7 @@ This creates a Light Switch in homekit for the power status of the projector.
 
 This is a fork from Jackie Yang's [homebridge-epson-projector](https://github.com/valkjsaaa/homebridge-epson-projector), modified to work with Axios.
 
-This was tested to work with the EPSON HomeCinema 2150. It should work with any other EPSON projector with EPSON iProjection support.
+This was tested to work with the EPSON HomeCinema 2150 and TW9400. It should work with any other EPSON projector with EPSON iProjection support.
 
 # Installation
 Run these commands:
