@@ -1,5 +1,5 @@
 {
-  "name": "@nitaybz/homebridge-epson-projector",
+  "name": "homebridge-epson-projector",
   "version": "1.0.0",
   "author": "nitaybz",
   "description": "Epson Projector automation, via Homebridge.",
