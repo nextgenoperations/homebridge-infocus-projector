@@ -1,7 +1,5 @@
 const axios = require('axios');
 
-const command_path = "/cgi-bin/directsend?";
-
 const query_path = "/cgi-bin/json_query?jsoncallback=";
 
 const timeout = 10000;
@@ -28,7 +26,7 @@ function EpsonProjector(log, config) {
 		this.refreshInterval = config["refreshInterval"] === undefined ? interval * 60000 : config["refreshInterval"] * 60000;
     this.debug = config["debug"] === undefined ? debug : config["debug"];
 
-    this.state = 0;	// Track the power state
+    this.state = false;	// Track the power state
 
 		this.referer = "http://" + this.ipAddressAddress + "/cgi-bin/webconf";
 		this.api = axios.create({
@@ -54,8 +52,8 @@ EpsonProjector.prototype = {
 
 	updateUI: async function () {
 		setTimeout( () => {
-			this.switchService.getCharacteristic(Characteristic.On).updateValue(this.state === 1 ? 1 : 0);
-			this.log('Updated Characteristic value to %s', this.state === 1 ? 1 : 0);
+			this.switchService.getCharacteristic(Characteristic.On).updateValue(this.state);
+			this.log('Updated Characteristic value to %s', this.state);
 		}, 100)
 	},
 
@@ -76,14 +74,14 @@ EpsonProjector.prototype = {
 					this.log.error('Error getting power state %s',err)
 				});
 
-				this.state = parseInt(resp.data.projector.feature.reply);
-//				this.state = resp.data.projector.feature.reply === "01" | resp.data.projector.feature.reply === "02" | resp.data.projector.feature.reply === "03";
+				// this.state = parseInt(resp.data.projector.feature.reply);
+				this.state = resp.data.projector.feature.reply === "01";
 				this.updateUI();
 				if (this.debug) {
 					this.log("http://" + this.ipAddress + query_path + "PWR?");
 					this.log("Projector response: " + resp.data.projector.feature.reply + " =", this.state);
 				}
-			}catch(err) {
+			} catch(err) {
 					this.log.error('Error getting power state %s',err)
 			}
 		}
@@ -92,7 +90,7 @@ EpsonProjector.prototype = {
 
 	setPowerState: async function(powerOn, callback) {
 		if (!this.wait) {
-			this.state = powerOn === true ? 1 : 0;
+			this.state = powerOn;
 			this.updateUI();
 			if(this.timer) clearTimeout(this.timer)
 			this.timer = null

@@ -43,7 +43,7 @@
 		"debug": {
 			"title": "Debug",
 			"type": "boolean",
-			"required": false,
+			"required": false
 		}
   }
 }
