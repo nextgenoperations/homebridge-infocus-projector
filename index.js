@@ -12,7 +12,7 @@ var Characteristic;
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
-    homebridge.registerAccessory("homebridge-epson-projector", "Epson Projector", EpsonProjector);
+    homebridge.registerAccessory("homebridge-epson-iprojection", "Epson iProjection", EpsonProjector);
 };
 
 

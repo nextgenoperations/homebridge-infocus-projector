@@ -1,8 +1,8 @@
 {
-  "name": "homebridge-epson-projector",
+  "name": "homebridge-epson-iprojection",
   "version": "1.0.0",
   "author": "nitaybz",
-  "description": "Epson Projector automation, via Homebridge.",
+  "description": "Homebridge Plugin for Epson Projector that works with iProjection app",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin",
@@ -10,7 +10,7 @@
     "projector"
   ],
   "dependencies": {
-    "axios": "^0.23.0"
+    "axios": "^1.6.3"
   },
   "engines": {
     "homebridge": ">=1.5.0"

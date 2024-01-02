@@ -1,9 +1,8 @@
-# An [EPSON](https://www.epson.com) Projector plugin for
-[Homebridge](https://github.com/nfarina/homebridge).  
+# An [EPSON](https://www.epson.com) iProjection plugin for [Homebridge](https://github.com/nfarina/homebridge).  
 
-This creates a Light Switch in homekit for the power status of the projector.
+This creates a switch in homekit for the power status of the projector.
 
-This is a fork from Jackie Yang's [homebridge-epson-projector](https://github.com/valkjsaaa/homebridge-epson-projector), modified to work with Axios.
+This is a fork from @ecoen66 [homebridge-epson-projector](https://github.com/ecoen66/homebridge-epson-projector), with a few fixes.
 
 This was tested to work with the EPSON HomeCinema 2150 and TW9400. It should work with any other EPSON projector with EPSON iProjection support.
 
@@ -11,7 +10,7 @@ This was tested to work with the EPSON HomeCinema 2150 and TW9400. It should wor
 Run these commands:
 
     % sudo npm install -g homebridge
-    % sudo npm install -g @ecoen66/homebridge-epson-projector
+    % sudo npm install -g homebridge-epson-iprojection
 
 
 NOTE: If you install homebridge like this:
@@ -20,7 +19,7 @@ NOTE: If you install homebridge like this:
 
 Then all subsequent installations must be like this:
 
-    sudo npm install -g --unsafe-perm @ecoen66/homebridge-epson-projector
+    sudo npm install -g --unsafe-perm homebridge-epson-iprojection
 
 # Configuration
 
@@ -36,7 +35,7 @@ Example accessory config (needs to be added to the homebridge config.json):
 				"timeout": 10000,
 				"refreshInterval": 15,
 				"debug": false,
-				"accessory": "Epson Projector"
+				"accessory": "Epson iProjection"
 			}
 		]
  ...
@@ -45,7 +44,7 @@ Example accessory config (needs to be added to the homebridge config.json):
 
 Field           						| Description
 ----------------------------|------------
-**accessory**   						| (required) Must always be "Epson Projector".
+**accessory**   						| (required) Must always be "Epson iProjection".
 **name**										| (required) The name you want to use for for the light switch widget.
 **ipAddress**								| (required) The IP address of the projector (should be static, not DHCP).
 **model**										| (optional) This shows up in the homekit accessory Characteristics.
