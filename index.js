@@ -67,13 +67,15 @@ InfocusProjector.prototype = {
 		if(!this.wait) {
 		
 			try {	 
-				const resp = await this.api.get('http://' + this.ipAddress + query_path + 'PWR?')
+				//const resp = await this.api.get('http://' + this.ipAddress + query_path + 'PWR?')
+				const resp = JSON.parse(convert.xml2json(await this.api.get('http://' + this.ipAddress + query_path + 'PJState.xml'), {compact: true, spaces: 2}))
+					
 				.catch(err => {
 					this.log.error('Error getting power state %s',err)
 				});
 
 				// this.state = parseInt(resp.data.projector.feature.reply);
-				this.state = resp.data.projector.feature.reply === "01";
+				this.state = resp.response.pjPowermd;
 				this.updateUI();
 				if (this.debug) {
 					this.log("http://" + this.ipAddress + query_path + "PWR?");
@@ -94,9 +96,9 @@ InfocusProjector.prototype = {
 			this.timer = null
 			let command;
 			if (powerOn) {
-				command = "PWR ON";
+				command = "dpjset.cgi?PJ_PowerMode=1";
 			} else {
-				command = "PWR OFF";
+				command = "dpjset.cgi?PJ_PowerMode=0";
 			}
 			if (this.debug) {
 				this.log('powerOn = %s', powerOn);
