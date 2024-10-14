@@ -1,14 +1,13 @@
 {
-  "name": "homebridge-epson-iprojection",
+  "name": "homebridge-infocus-projector",
   "version": "1.0.0",
-  "author": "nitaybz",
-  "description": "Homebridge Plugin for Epson Projector that works with iProjection app",
+  "author": "ngops",
+  "description": "Homebridge Plugin for Infocus Projector",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin",
-    "epson",
-    "projector",
-    "iprojection"
+    "infocus",
+    "projector"
   ],
   "dependencies": {
     "axios": "^1.6.3"
@@ -18,10 +17,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nitaybz/homebridge-epson-iprojection.git"
+    "url": "git+https://github.com/ngops/homebridge-infocus-projector.git"
   },
   "bugs": {
-    "url": "https://github.com/nitaybz/homebridge-epson-iprojection/issues"
+    "url": "https://github.com/ngops/homebridge-infocus-projector/issues"
   },
-  "homepage": "https://github.com/nitaybz/homebridge-epson-iprojection"
-}
+  "homepage": "https://github.com/ngops/homebridge-infocus-projector"
