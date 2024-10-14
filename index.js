@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const query_path = "/cgi-bin/json_query?jsoncallback=";
+const query_path = "/";
 
 const timeout = 10000;
 const interval = 15;	// Minutes
@@ -12,15 +12,15 @@ var Characteristic;
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
-    homebridge.registerAccessory("homebridge-epson-iprojection", "Epson iProjection", EpsonProjector);
+    homebridge.registerAccessory("homebridge-infocus-projector", "INFOCUS Projector", InfocusProjector);
 };
 
 
-function EpsonProjector(log, config) {
+function InfocusProjector(log, config) {
     this.log = log;
     this.ipAddress = config["ipAddress"];
-    this.model = config["model"] === undefined ? "" : config["model"];
-    this.serial = config["serial"] === undefined ? "" : config["serial"];
+    //this.model = config["model"] === undefined ? "" : config["model"];
+    //this.serial = config["serial"] === undefined ? "" : config["serial"];
     this.name = config["name"];
     this.timeout = config["timeout"] === undefined ? timeout : config["timeout"];
 		this.refreshInterval = config["refreshInterval"] === undefined ? interval * 60000 : config["refreshInterval"] * 60000;
@@ -28,16 +28,14 @@ function EpsonProjector(log, config) {
 
     this.state = false;	// Track the power state
 
-		this.referer = "http://" + this.ipAddressAddress + "/cgi-bin/webconf";
+		this.referer = "http://" + this.ipAddressAddress + "/PJState.xml";
 		this.api = axios.create({
 			headers: {'Referer': this.referer}
 		});
 
 		this.informationService = new Service.AccessoryInformation();
 		this.informationService
-				.setCharacteristic(Characteristic.Manufacturer, "Epson")
-				.setCharacteristic(Characteristic.Model, this.model)
-				.setCharacteristic(Characteristic.SerialNumber, this.serial);
+				.setCharacteristic(Characteristic.Manufacturer, "Infocus");
 		this.switchService = new Service.Switch(this.name);
 		this.switchService
 				.getCharacteristic(Characteristic.On)
@@ -48,7 +46,7 @@ function EpsonProjector(log, config) {
 		this.poll()
 }
 
-EpsonProjector.prototype = {
+InfocusProjector.prototype = {
 
 	updateUI: async function () {
 		setTimeout( () => {
