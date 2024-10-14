@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "Epson iProjection",
+  "pluginAlias": "Infocus Projector",
   "pluginType": "accessory",
   "schema": {
 		"name": {
@@ -20,13 +20,6 @@
 			"required": false,
 			"default": "",
 			"description": "Model number to display in Homekit."
-		},
-		"serial": {
-			"title": "Serial Number",
-			"type": "string",
-			"required": false,
-			"default": "",
-			"description": "Serial number to display in Homekit."
 		},
 		"timeout": {
 			"title": "Timeout",
