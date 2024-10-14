@@ -1,16 +1,16 @@
-# An [EPSON](https://www.epson.com) iProjection plugin for [Homebridge](https://github.com/nfarina/homebridge).  
+# An [INFOCUS](https://www.infocus.com) Projector plugin for [Homebridge](https://github.com/nfarina/homebridge).  
 
 This creates a switch in homekit for the power status of the projector.
 
 This is a fork from @ecoen66 [homebridge-epson-projector](https://github.com/ecoen66/homebridge-epson-projector), with a few fixes.
 
-This was tested to work with the EPSON HomeCinema 2150 and TW9400. It should work with any other EPSON projector with EPSON iProjection support.
+This was tested to work with the INFOCUS IN3118HD. It may work with any other INFOCUS projector with web control.
 
 # Installation
 Run these commands:
 
     % sudo npm install -g homebridge
-    % sudo npm install -g homebridge-epson-iprojection
+    % sudo npm install -g homebridge-infocus-projector
 
 
 NOTE: If you install homebridge like this:
@@ -31,7 +31,6 @@ Example accessory config (needs to be added to the homebridge config.json):
 				"name": "Projector",
 				"ipAddress": "192.168.1.115",
 				"model": "2150",
-				"serial": "myserialno",
 				"timeout": 10000,
 				"refreshInterval": 15,
 				"debug": false,
@@ -48,7 +47,6 @@ Field           						| Description
 **name**										| (required) The name you want to use for for the light switch widget.
 **ipAddress**								| (required) The IP address of the projector (should be static, not DHCP).
 **model**										| (optional) This shows up in the homekit accessory Characteristics.
-**serial**									| (optional) This shows up in the homekit accessory Characteristics.
 **timeout**									| (optional) The timeout duration for the web API calls.
 **refreshInterval**					| (optional) The number of minutes between power status polls and updates. Default is 15
 **debug**										| (optional) Enables additional logging.
