@@ -3,7 +3,7 @@ const convert = require("xml-js");
 const query_path = "/";
 
 const timeout = 10000;
-const interval = 15;    // Minutes
+const interval = 1;    // Seconds
 const debug = false;
 
 var Service;
@@ -23,7 +23,7 @@ function InfocusProjector(log, config) {
     //this.serial = config["serial"] === undefined ? "" : config["serial"];
     this.name = config["name"];
     this.timeout = config["timeout"] === undefined ? timeout : config["timeout"];
-                this.refreshInterval = config["refreshInterval"] === undefined ? interval * 60000 : config["refreshInterval"] * 60000;
+    this.refreshInterval = config["refreshInterval"] === undefined ? interval * 1000 : config["refreshInterval"] * 1000;
     this.debug = config["debug"] === undefined ? debug : config["debug"];
 
     this.state = false; // Track the power state
