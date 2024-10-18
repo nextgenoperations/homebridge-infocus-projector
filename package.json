@@ -10,7 +10,8 @@
     "projector"
   ],
   "dependencies": {
-    "axios": "^1.6.3"
+    "axios": "^1.6.3",
+    "xml-js": ">=1.6.11"
   },
   "engines": {
     "homebridge": ">=1.5.0"
