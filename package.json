@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngops/homebridge-infocus-projector.git"
+    "url": "git+https://github.com/nextgenoperations/homebridge-infocus-projector.git"
   },
   "bugs": {
-    "url": "https://github.com/ngops/homebridge-infocus-projector/issues"
+    "url": "https://github.com/nextgenoperations/homebridge-infocus-projector/issues"
   },
-  "homepage": "https://github.com/ngops/homebridge-infocus-projector"
+  "homepage": "https://github.com/nextgenoperations/homebridge-infocus-projector"
 }
